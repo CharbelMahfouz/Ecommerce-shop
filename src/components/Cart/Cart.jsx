@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CartItem from "./CartItem/CartItem";
 import CartAction from "./CartAction/CartAction";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
   const [isEmpty, setIsEmpty] = useState(true);
-  const checkIfCartEmpty = () => {
+  const checkIfCartEmpty = useCallback(() => {
     if (cart.line_items) {
       if (cart.line_items.length) {
         setIsEmpty(false);
@@ -16,11 +16,11 @@ const Cart = () => {
         setIsEmpty(true);
       }
     }
-  };
+  }, [cart]);
 
   useEffect(() => {
     checkIfCartEmpty();
-  }, [cart]);
+  }, [cart, checkIfCartEmpty]);
 
   const EmptyCart = () => {
     return (
@@ -68,7 +68,7 @@ const Cart = () => {
   const FilledCart = () => {
     return (
       <>
-        <div id="cart-items" className="w-full md:w-3/4 bg-white py-3 px-3 ">
+        <div id="cart-items" className="w-full md:w-3/4  bg-white py-3 px-3 ">
           <div id="cart-items-top" className="flex justify-between pb-3">
             <h3 id="cart-heading" className="font-bold">
               Shopping Cart
@@ -77,7 +77,7 @@ const Cart = () => {
           </div>
           <div
             id="cart-items-container"
-            className="flex flex-col overflow-auto "
+            className="flex flex-col overflow-auto"
           >
             {cart.line_items &&
               cart.line_items.map((item) => {
@@ -98,12 +98,15 @@ const Cart = () => {
     );
   };
   return (
-    <section
-      id="cart-section"
-      className="flex flex-col w-full md:flex-row h-full"
-    >
-      {isEmpty ? <EmptyCart /> : <FilledCart />}
-    </section>
+    <>
+      <Navbar />
+      <section
+        id="cart-section"
+        className="flex flex-col w-full md:flex-row h-full"
+      >
+        {isEmpty ? <EmptyCart /> : <FilledCart />}
+      </section>
+    </>
   );
 };
 

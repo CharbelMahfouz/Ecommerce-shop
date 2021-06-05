@@ -5,13 +5,15 @@ import { RiShoppingCartLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { fetchCart } from "../../redux/actions/cart";
+import { logout } from "../../redux/actions/auth";
 
 const Navbar = () => {
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCart());
-  }, []);
+  }, [dispatch]);
   return (
     <header>
       <div className="flex flex-col" id="navbar-container">
@@ -50,14 +52,28 @@ const Navbar = () => {
           </div>
           <div id="nav-right" className="flex items-center">
             <div id="signin-user">
-              <Link to="/signin" className="flex flex-col">
-                <span className="text-gray-300 text-sm leading-none">
-                  Hello, sign in
-                </span>
-                <span className="text-white font-semibold leading-none">
-                  Account & lists
-                </span>
-              </Link>
+              {user ? (
+                <div className="flex flex-col">
+                  <span className="text-gray-300 text-sm leading-none">
+                    Hello, {user.displayName}
+                  </span>
+                  <span
+                    className="text-white font-semibold leading-none cursor-pointer"
+                    onClick={() => dispatch(logout())}
+                  >
+                    Logout
+                  </span>
+                </div>
+              ) : (
+                <Link to="/signin" className="flex flex-col">
+                  <span className="text-gray-300 text-sm leading-none">
+                    Hello, sign in
+                  </span>
+                  <span className="text-white font-semibold leading-none">
+                    Account & lists
+                  </span>
+                </Link>
+              )}
             </div>
             <div id="summary" className=" mx-5">
               <Link to="/account-summary" className="flex flex-col">

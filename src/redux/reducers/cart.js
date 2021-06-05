@@ -2,6 +2,7 @@ import {
   ADD_TO_CART,
   EMPTY_CART,
   GET_CART_ITEMS,
+  REFRESH_CART,
   REMOVE_ITEM_FROM_CART,
   UPDATE_CART_QUANTITY,
 } from "../actions/constants/actionTypes";
@@ -13,6 +14,7 @@ const cartReducer = (cart = {}, action) => {
     case UPDATE_CART_QUANTITY:
     case REMOVE_ITEM_FROM_CART:
     case EMPTY_CART:
+    case REFRESH_CART:
       return action.payload;
     default:
       return cart;

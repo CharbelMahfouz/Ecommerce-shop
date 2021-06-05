@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  updateQty,
-  removeFromCart,
-  emptyCart,
-} from "../../../redux/actions/cart";
+import { updateQty, removeFromCart } from "../../../redux/actions/cart";
 import { useDispatch } from "react-redux";
 
 const CartItem = ({ item }) => {

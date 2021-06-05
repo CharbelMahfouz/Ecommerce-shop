@@ -4,6 +4,7 @@ import {
   UPDATE_CART_QUANTITY,
   REMOVE_ITEM_FROM_CART,
   EMPTY_CART,
+  REFRESH_CART,
 } from "./constants/actionTypes";
 import { commerce } from "../../lib/commerce";
 
@@ -49,5 +50,14 @@ export const emptyCart = () => async (dispatch) => {
     dispatch({ type: EMPTY_CART, payload: cart });
   } catch (error) {
     console.log(error.message);
+  }
+};
+
+export const refreshCart = () => async (dispatch) => {
+  try {
+    const newCart = await commerce.cart.refresh();
+    dispatch({ type: REFRESH_CART, payload: newCart });
+  } catch (error) {
+    console.log(error);
   }
 };

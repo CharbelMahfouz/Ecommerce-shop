@@ -1,10 +1,15 @@
-// const authReducer = (, action) => {
-//   switch (action.type) {
-//     case EMPTY_CART:
-//       return action.payload;
-//     default:
-//       return cart;
-//   }
-// };
+import { CREATE_USER, LOGIN, LOGOUT } from "../actions/constants/actionTypes";
 
-// export default authReducer;
+const authReducer = (user = {}, action) => {
+  switch (action.type) {
+    case CREATE_USER:
+    case LOGIN:
+      return action.payload;
+    case LOGOUT:
+      return null;
+    default:
+      return user;
+  }
+};
+
+export default authReducer;

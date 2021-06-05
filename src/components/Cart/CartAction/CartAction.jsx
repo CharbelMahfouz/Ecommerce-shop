@@ -9,7 +9,7 @@ const CartAction = ({ cart }) => {
   return (
     <div
       id="cart-info"
-      className="w-full md:w-1/5 mx-auto bg-white h-32 p-3 mt-2 flex flex-col justify-between"
+      className="w-full  md:w-1/5 mx-auto bg-white h-32 p-3 mt-2 flex flex-col justify-between"
     >
       <p>
         Subtotal ({cart.total_items}) items:{" "}
