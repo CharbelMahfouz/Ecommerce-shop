@@ -1,6 +1,7 @@
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { addToCart } from "../../../redux/actions/cart";
 
 const Product = ({ product }) => {
@@ -19,9 +20,12 @@ const Product = ({ product }) => {
       </div>
       <div id="card-body">
         <div id="card-content" className="flex justify-between">
-          <h5 id="product-name" className="font-bold">
-            {product.name}
-          </h5>
+          <Link to={`/product/${product.id}`}>
+            <h5 id="product-name" className="font-bold">
+              {product.name}
+            </h5>
+          </Link>
+
           <h5 id="product-price">{product.price.formatted_with_symbol}</h5>
         </div>
         <h5

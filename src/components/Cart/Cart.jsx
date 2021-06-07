@@ -7,7 +7,9 @@ import Navbar from "../Navbar/Navbar";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.auth);
   const [isEmpty, setIsEmpty] = useState(true);
+
   const checkIfCartEmpty = useCallback(() => {
     if (cart.line_items) {
       if (cart.line_items.length) {
@@ -45,18 +47,22 @@ const Cart = () => {
                 id="empty-cart-action-btns"
                 className="flex items-center my-5"
               >
-                <Link
-                  to=""
-                  className="bg-btnBackgroundYellow py-1 px-3 rounded-lg text-base text-amazonText leading-6 mr-4 shadow-lg hover:bg-btnHoverYellow transition"
-                >
-                  Sign In To Your Account
-                </Link>
-                <Link
-                  to="/signup"
-                  className="shadow-lg bg-btnBackgroundGray py-1 px-2 rounded-lg border-amazonBorder border-solid border-t border-r border-l border-b hover:bg-btnHoverGray transition"
-                >
-                  Sign Up Now
-                </Link>
+                {!user && (
+                  <>
+                    <Link
+                      to="/signin"
+                      className="bg-btnBackgroundYellow py-1 px-3 rounded-lg text-base text-amazonText leading-6 mr-4 shadow-lg hover:bg-btnHoverYellow transition"
+                    >
+                      Sign In To Your Account
+                    </Link>
+                    <Link
+                      to="/signup"
+                      className="shadow-lg bg-btnBackgroundGray py-1 px-2 rounded-lg border-amazonBorder border-solid border-t border-r border-l border-b hover:bg-btnHoverGray transition"
+                    >
+                      Sign Up Now
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>

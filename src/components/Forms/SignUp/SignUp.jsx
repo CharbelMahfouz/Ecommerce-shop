@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { SignUpValidateSchema } from "../../../helpers/yup";

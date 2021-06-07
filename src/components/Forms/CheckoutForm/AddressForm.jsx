@@ -102,7 +102,7 @@ const AddressForm = () => {
   useEffect(() => {
     if (formik.values.shippingCountry)
       fetchSubdivisions(token.id, formik.values.shippingCountry);
-  }, [formik.values.shippingCountry]);
+  }, [formik.values.shippingCountry, token.id]);
 
   useEffect(() => {
     if (formik.values.shippingSubDivision)
@@ -111,7 +111,7 @@ const AddressForm = () => {
         formik.values.shippingCountry,
         formik.values.shippingSubDivision
       );
-  }, [formik.values.shippingSubDivision]);
+  }, [formik.values.shippingSubDivision, token.id]);
 
   return (
     <div>

@@ -43,7 +43,7 @@ const CheckoutForm = () => {
 
   useEffect(() => {
     dispatch(generateCheckoutToken(cart.id));
-  }, [cart.id]);
+  }, [cart.id, dispatch]);
 
   return (
     <>

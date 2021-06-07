@@ -6,7 +6,6 @@ import {
 } from "@stripe/react-stripe-js";
 import Review from "./Review";
 import { loadStripe } from "@stripe/stripe-js";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   DECREMENT_FORM_STEP,
@@ -109,7 +108,7 @@ const PaymentForm = () => {
           <input
             type="radio"
             name="paymentMethod"
-            className="Cash On Delivery"
+            value="Cash On Delivery"
             onChange={handleChange}
             className="mr-3"
           />

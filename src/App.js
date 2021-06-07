@@ -1,13 +1,21 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Home, Cart, Checkout, SignIn, SignUp } from "./components";
+import {
+  Home,
+  Cart,
+  Checkout,
+  SignIn,
+  SignUp,
+  ProductInfo,
+} from "./components";
 import { auth } from "./firebase/firebase";
+import ProtectedRoute from "./Protected Routes/ProtectedRoute";
 import { logout } from "./redux/actions/auth";
+import { fetchCategories } from "./redux/actions/categories";
 import { LOGIN } from "./redux/actions/constants/actionTypes";
 
 function App() {
-  const user = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,14 +32,20 @@ function App() {
       }
     });
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, [dispatch]);
+
   return (
     <>
       <Router>
         <Switch>
           <Route exact path="/cart" component={Cart} />
-          <Route exact path="/checkout" component={Checkout} />
+          <ProtectedRoute exact path="/checkout" component={Checkout} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/product/:id" component={ProductInfo} />
           <Route exact path="/" component={Home} />
         </Switch>
       </Router>

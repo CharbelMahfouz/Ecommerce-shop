@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 const CartAction = ({ cart }) => {
+  const user = useSelector((state) => state.auth);
   const history = useHistory();
   const goToCheckout = () => {
     history.push("/checkout");
@@ -19,10 +21,15 @@ const CartAction = ({ cart }) => {
       </p>
       <button
         id="checkout-btn"
-        className="bg-amazonYellow py-2 rounded-md"
+        className={` py-2 rounded-md ${
+          !user
+            ? "bg-gradient-to-gray-300 to-gray-500 border-gray-200 text-gray-200 cursor-not-allowed"
+            : "bg-amazonYellow"
+        } `}
+        disabled={!user}
         onClick={goToCheckout}
       >
-        Proceed To Checkout
+        {user ? "Proceed To Checkout" : "Login To Checkout"}
       </button>
     </div>
   );

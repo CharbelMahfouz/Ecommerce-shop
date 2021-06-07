@@ -5,3 +5,4 @@ export { default as Checkout } from "./Forms/CheckoutForm/Checkout";
 export { default as SignIn } from "./Forms/SignIn/SignIn";
 export { default as SignUp } from "./Forms/SignUp/SignUp";
 export { default as Home } from "./Home/Home";
+export { default as ProductInfo } from "./Product Info/ProductInfo";

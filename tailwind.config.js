@@ -14,6 +14,7 @@ module.exports = {
         btnBorder: "#FCD200",
         amazonText: "#0F1111",
         amazonBorder: "#D5D9D9",
+        amazonBlue: "#232f3e",
       },
     },
   },
