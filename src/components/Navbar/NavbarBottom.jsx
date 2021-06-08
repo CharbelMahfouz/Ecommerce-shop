@@ -17,7 +17,7 @@ const NavbarBottom = () => {
         className="flex items-center cursor-pointer"
       >
         {" "}
-        <FiMenu className="h-6 mr-1" /> All
+        <FiMenu className=" mr-1" /> All
       </button>
       {categories &&
         categories.map((category) => (

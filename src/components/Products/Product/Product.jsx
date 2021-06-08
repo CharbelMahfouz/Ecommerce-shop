@@ -7,7 +7,7 @@ import { addToCart } from "../../../redux/actions/cart";
 const Product = ({ product }) => {
   const dispatch = useDispatch();
   return (
-    <div id="card" className="bg-white flex flex-col   py-5 px-7">
+    <div id="card" className="bg-white flex flex-col py-5 px-7">
       <div id="card-head" className="h-52 mb-3">
         <div id="card-media" className="h-full">
           <img
@@ -18,10 +18,10 @@ const Product = ({ product }) => {
           />
         </div>
       </div>
-      <div id="card-body">
+      <div id="card-body" className="mb-2">
         <div id="card-content" className="flex justify-between">
           <Link to={`/product/${product.id}`}>
-            <h5 id="product-name" className="font-bold">
+            <h5 id="product-name" className="font-bold mb-3">
               {product.name}
             </h5>
           </Link>
@@ -31,7 +31,7 @@ const Product = ({ product }) => {
         <h5
           dangerouslySetInnerHTML={{ __html: product.description }}
           id="product-description"
-          className="text-gray-600"
+          className="text-gray-600 line-clamp-2"
         ></h5>
       </div>
       <div id="card-footer" className=" mt-auto">
