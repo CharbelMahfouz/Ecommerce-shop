@@ -20,7 +20,6 @@ export const fetchCategoryProducts = (categorySlug) => async (dispatch) => {
       category_slug: [categorySlug],
     });
     dispatch({ type: FETCH_CATEGORY_PRODUCTS, payload: data });
-    console.log(data);
   } catch (error) {
     console.log(error);
   }
@@ -28,8 +27,9 @@ export const fetchCategoryProducts = (categorySlug) => async (dispatch) => {
 
 export const fetchProductInfo = (productId) => async (dispatch) => {
   try {
-    const { product } = await commerce.products.retrieve(productId);
+    const product = await commerce.products.retrieve(productId);
     dispatch({ type: FETCH_PRODUCT, payload: product });
+    console.log(product);
   } catch (error) {
     console.log(error);
   }
