@@ -7,6 +7,7 @@ export const EMPTY_CART = "EMPTY_CART";
 export const CREATE_USER = "CREATE_USER";
 export const LOGOUT = "LOGOUT";
 export const LOGIN = "LOGIN";
+export const AUTH_ERROR = "AUTH_ERROR";
 export const CREATE_CHECKOUT_TOKEN = "CREATE_CHECKOUT_TOKEN";
 export const SET_SHIPPING_DATA = "SET_SHIPPING_DATA";
 export const INCREMENT_FORM_STEP = "INCREMENT_FORM_STEP";

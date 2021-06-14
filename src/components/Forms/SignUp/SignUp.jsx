@@ -1,11 +1,13 @@
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SignUpValidateSchema } from "../../../helpers/yup";
 import { Link, useHistory } from "react-router-dom";
 import { signUp } from "../../../redux/actions/auth";
 import Field, { LockIcon } from "../FormComponents/Field";
 
 export const SignUp = () => {
+  const { errorMessage } = useSelector((state) => state.auth);
+  console.log(errorMessage);
   const dispatch = useDispatch();
   const history = useHistory();
   const formik = useFormik({
@@ -22,11 +24,13 @@ export const SignUp = () => {
   });
 
   return (
-    <div className="grid place-items-center mt-24">
+    <div className="grid place-items-center h-screen">
       <div className="w-96 border bg-white px-8 py-6">
         <h1 className="text-3xl font-normal">Sign-Up</h1>
+        {errorMessage && <small className="text-red-600">{errorMessage}</small>}
+
         <form onSubmit={formik.handleSubmit} className="flex flex-col">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             <Field
               dot={true}
               error={formik.touched.firstName && formik.errors.firstName}
@@ -62,7 +66,7 @@ export const SignUp = () => {
             type="password"
           />
           <button
-            className=" bg-amazonYellow active:bg-gray-900 focus:outline-none rounded px-4 py-2 border-solid border-black border-0"
+            className=" bg-amazonYellow active:bg-gray-900 focus:outline-none rounded px-4 py-2 border-solid border-black border-0 mt-3"
             type="submit"
           >
             Create Account

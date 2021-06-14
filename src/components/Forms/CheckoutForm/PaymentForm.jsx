@@ -68,30 +68,30 @@ const PaymentForm = () => {
   const handleCashOnDelivery = (e) => {
     // const paymentMethodId = token.gateways.manual[0].id;
     // console.log(paymentMethodId);
-    const orderData = {
-      line_items: token.live.line_items,
-      customer: {
-        firstname: shippingData.FullName,
-        email: shippingData.email,
-      },
-      shipping: {
-        name: "Primary",
-        street: shippingData.address,
-        town_city: shippingData.city,
-        county_state: shippingData.shippingSubDivision,
-        postal_code: shippingData.zip,
-        country: shippingData.shippingCountry,
-      },
-      fulfillment: {
-        shipping_method: shippingData.shippingOption,
-      },
-      payment: {
-        gateway: "manual",
-        manual: {
-          // id: paymentMethodId,
-        },
-      },
-    };
+    // const orderData = {
+    //   line_items: token.live.line_items,
+    //   customer: {
+    //     firstname: shippingData.FullName,
+    //     email: shippingData.email,
+    //   },
+    //   shipping: {
+    //     name: "Primary",
+    //     street: shippingData.address,
+    //     town_city: shippingData.city,
+    //     county_state: shippingData.shippingSubDivision,
+    //     postal_code: shippingData.zip,
+    //     country: shippingData.shippingCountry,
+    //   },
+    //   fulfillment: {
+    //     shipping_method: shippingData.shippingOption,
+    //   },
+    //   payment: {
+    //     gateway: "manual",
+    //     manual: {
+    //       // id: paymentMethodId,
+    //     },
+    //   },
+    // };
   };
 
   const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);

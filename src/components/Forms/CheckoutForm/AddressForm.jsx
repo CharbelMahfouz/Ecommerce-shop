@@ -111,7 +111,11 @@ const AddressForm = () => {
         formik.values.shippingCountry,
         formik.values.shippingSubDivision
       );
-  }, [formik.values.shippingSubDivision, token.id]);
+  }, [
+    formik.values.shippingSubDivision,
+    token.id,
+    formik.values.shippingCountry,
+  ]);
 
   return (
     <div>

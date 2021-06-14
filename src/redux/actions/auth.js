@@ -1,5 +1,10 @@
 import { auth } from "../../firebase/firebase";
-import { CREATE_USER, LOGOUT, LOGIN } from "./constants/actionTypes";
+import {
+  CREATE_USER,
+  LOGOUT,
+  LOGIN,
+  AUTH_ERROR,
+} from "./constants/actionTypes";
 
 export const signUp = (data, history) => async (dispatch) => {
   try {
@@ -21,7 +26,7 @@ export const signUp = (data, history) => async (dispatch) => {
     });
     history.push("/");
   } catch (error) {
-    console.log(error.message);
+    dispatch({ type: AUTH_ERROR, payload: error.message });
   }
 };
 
@@ -39,7 +44,7 @@ export const signIn = (data, history) => async (dispatch) => {
     dispatch({ type: LOGIN, payload: currUser });
     history.push("/");
   } catch (error) {
-    console.log(error.message);
+    dispatch({ type: AUTH_ERROR, payload: error.message });
   }
 };
 
@@ -48,6 +53,6 @@ export const logout = () => async (dispatch) => {
     await auth.signOut();
     dispatch({ type: LOGOUT });
   } catch (error) {
-    console.log(error.message);
+    dispatch({ type: AUTH_ERROR, payload: error.message });
   }
 };

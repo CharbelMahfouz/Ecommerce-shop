@@ -8,7 +8,7 @@ import SearchBar from "./Search Bar/SearchBar";
 const NavbarTop = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  const user = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
   return (
     <div
       id="nav-top"
