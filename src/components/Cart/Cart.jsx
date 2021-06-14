@@ -7,7 +7,7 @@ import Navbar from "../Navbar/Navbar";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  const user = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
   const [isEmpty, setIsEmpty] = useState(true);
 
   const checkIfCartEmpty = useCallback(() => {
