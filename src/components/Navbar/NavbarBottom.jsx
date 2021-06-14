@@ -10,7 +10,7 @@ const NavbarBottom = () => {
   return (
     <div
       id="nav-bottom"
-      className="flex items-center bg-amazonBlue text-white text-sm space-x-3 p-2 pl-6"
+      className="flex items-center bg-amazonBlue text-white md:text-sm text-xs space-x-3 p-2 pl-6"
     >
       <button
         onClick={() => dispatch(fetchProducts())}

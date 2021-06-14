@@ -28,8 +28,11 @@ const Cart = () => {
     return (
       <>
         <div className="container mx-auto grid place-content-center h-screen">
-          <div id="empty-cart-screen" className="bg-white flex p-12 ">
-            <div id="empty-cart-logo" className="w-72 mr-10">
+          <div
+            id="empty-cart-screen"
+            className="bg-white flex flex-col md:flex-row p-12 "
+          >
+            <div id="empty-cart-logo" className="md:w-72 w-48 mr-10">
               <img
                 src="images/empty-cart.svg"
                 alt="empty-cart-logo"
@@ -37,7 +40,7 @@ const Cart = () => {
               />
             </div>
             <div id="empty-cart-text">
-              <h2 className="text-2xl font-bold leading-loose">
+              <h2 className="md:text-2xl text-sm font-bold leading-loose">
                 Your Cart Is Empty
               </h2>
               <Link to="/" className="text-blue-700">
@@ -45,13 +48,13 @@ const Cart = () => {
               </Link>
               <div
                 id="empty-cart-action-btns"
-                className="flex items-center my-5"
+                className="flex md:flex-row flex-col md:items-center  my-5"
               >
                 {!user && (
                   <>
                     <Link
                       to="/signin"
-                      className="bg-btnBackgroundYellow py-1 px-3 rounded-lg text-base text-amazonText leading-6 mr-4 shadow-lg hover:bg-btnHoverYellow transition"
+                      className="bg-btnBackgroundYellow py-1 px-3 rounded-lg text-base text-amazonText leading-6 md:mr-4 mb-3 md:mb-0 shadow-lg hover:bg-btnHoverYellow transition"
                     >
                       Sign In To Your Account
                     </Link>
