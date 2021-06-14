@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 const CartAction = ({ cart }) => {
-  const user = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
   const history = useHistory();
   const goToCheckout = () => {
     history.push("/checkout");
