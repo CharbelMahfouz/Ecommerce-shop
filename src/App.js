@@ -9,6 +9,7 @@ import {
   SignUp,
   ProductInfo,
 } from "./components";
+import { OrderHistory } from "./components/Order History/OrderHistory";
 import { auth } from "./firebase/firebase";
 import ProtectedRoute from "./Protected Routes/ProtectedRoute";
 import { logout } from "./redux/actions/auth";
@@ -46,6 +47,7 @@ function App() {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/product/:id" component={ProductInfo} />
+          <Route exact path="/orders" component={OrderHistory} />
           <Route exact path="/" component={Home} />
         </Switch>
       </Router>

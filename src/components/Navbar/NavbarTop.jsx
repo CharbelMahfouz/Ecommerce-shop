@@ -4,6 +4,7 @@ import { RiShoppingCartLine } from "react-icons/ri";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../../redux/actions/auth";
+import SearchBar from "./Search Bar/SearchBar";
 
 const NavbarTop = () => {
   const dispatch = useDispatch();
@@ -26,26 +27,11 @@ const NavbarTop = () => {
         </div>
       </div>
       <div id="nav-center" className=" hidden sm:flex mr-4 flex-1 ">
-        <div
-          id="search-bar-container"
-          className="flex items-center h-full w-full"
-        >
-          <input
-            type="search"
-            id="search-input"
-            className="flex-grow flex-1 p-1.5 rounded-l-md focus:outline-none"
-          />
-          <button
-            id="search-btn"
-            className="h-full py-1.5 px-2 bg-amazonYellow text-2xl rounded-r-md"
-          >
-            <AiOutlineSearch />
-          </button>
-        </div>
+        <SearchBar />
       </div>
       <div
         id="nav-right"
-        className="flex items-center text-xs space-x-6 whitespace-nowrap"
+        className="flex items-center text-xs space-x-2 md:space-x-6 whitespace-nowrap"
       >
         <div id="signin-user">
           {user ? (
@@ -71,13 +57,11 @@ const NavbarTop = () => {
             </Link>
           )}
         </div>
-        <div id="summary">
-          <Link to="/account-summary" className="flex flex-col ">
-            <span className="text-gray-300  leading-none">Returns</span>
-            <span className="text-white font-extrabold leading-none md:text-sm">
-              & Orders
-            </span>
-          </Link>
+        <div id="summary" className="flex flex-col">
+          <span className="text-gray-300  leading-none">Returns</span>
+          <span className="text-white font-extrabold leading-none md:text-sm">
+            & Orders
+          </span>
         </div>
         <div id="navbar-cart" className=" text-sm self-end ">
           <Link to="/cart" className="flex items-center">
@@ -85,8 +69,11 @@ const NavbarTop = () => {
               <RiShoppingCartLine style={{ fontSize: "30px" }} />
             </span>
 
+            <span className=" hidden md:text-sm md:inline text-white font-extrabold leading-none">
+              Cart
+            </span>
             <span className="md:text-sm text-white font-extrabold leading-none">
-              Cart ({cart ? cart.total_items : 0})
+              ({cart ? cart.total_items : 0})
             </span>
           </Link>
         </div>

@@ -4,6 +4,7 @@ import cart from "./cart";
 import auth from "./auth";
 import checkout from "./checkout";
 import categories from "./categories";
+import customer from "./customer";
 
 export const reducers = combineReducers({
   products,
@@ -11,4 +12,5 @@ export const reducers = combineReducers({
   auth,
   checkout,
   categories,
+  customer,
 });

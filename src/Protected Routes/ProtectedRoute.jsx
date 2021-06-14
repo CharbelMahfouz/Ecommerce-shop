@@ -9,7 +9,7 @@ const ProtectedRoute = ({ component: RouteComponent, ...rest }) => {
     <Route
       {...rest}
       render={(routeProps) =>
-        !!user ? <RouteComponent {...routeProps} /> : <Redirect to="/" />
+        user !== null ? <RouteComponent {...routeProps} /> : <Redirect to="/" />
       }
     />
   );

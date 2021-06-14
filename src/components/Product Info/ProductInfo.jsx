@@ -31,7 +31,7 @@ const ProductInfo = () => {
               {product && product.name}
             </h1>
             <p
-              className="text-lg mb-4"
+              className="text-lg mb-3"
               dangerouslySetInnerHTML={{
                 __html: product && product.description,
               }}

@@ -7,7 +7,7 @@ import { addToCart } from "../../../redux/actions/cart";
 const Product = ({ product }) => {
   const dispatch = useDispatch();
   return (
-    <div id="card" className="bg-white flex flex-col py-5 px-7">
+    <div id="card" className="bg-white flex flex-col py-5 px-7 relative">
       <div id="card-head" className="h-52 mb-3">
         <div id="card-media" className="h-full">
           <img

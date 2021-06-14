@@ -5,7 +5,7 @@ import Products from "../Products/Products";
 
 const Home = () => {
   return (
-    <div className="relative">
+    <div className="relative min-h-screen">
       <Navbar />
       <main className="max-w-screen-2xl mx-auto pb-3">
         <Banner />
