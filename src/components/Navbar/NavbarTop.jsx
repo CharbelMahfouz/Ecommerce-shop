@@ -1,5 +1,4 @@
 import React from "react";
-import { AiOutlineSearch } from "react-icons/ai";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
